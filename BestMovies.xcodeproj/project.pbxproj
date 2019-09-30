@@ -13,6 +13,10 @@
 		539A405523423E9A005BE54C /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539A405423423E9A005BE54C /* MainCoordinator.swift */; };
 		539A405723423EA9005BE54C /* AccountCreating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539A405623423EA9005BE54C /* AccountCreating.swift */; };
 		53DBFEE8234246A8003D1C1B /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DBFEE7234246A8003D1C1B /* SignInViewModel.swift */; };
+		53DBFEEB23424E92003D1C1B /* BestMoviesData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 53DBFEE923424E92003D1C1B /* BestMoviesData.xcdatamodeld */; };
+		53DBFEF323425207003D1C1B /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DBFEF123425207003D1C1B /* User+CoreDataProperties.swift */; };
+		53DBFEF423425207003D1C1B /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DBFEF223425207003D1C1B /* User+CoreDataClass.swift */; };
+		53DBFEF623425F59003D1C1B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DBFEF523425F59003D1C1B /* Constants.swift */; };
 		7B15A03D234216FA00E5839E /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE600CE233D0B1F000EBEC9 /* SignUpViewModel.swift */; };
 		7B15A0402342171600E5839E /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B763E462332875D000E38DF /* UITextFieldExtension.swift */; };
 		7B15A0412342171600E5839E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D50D023340347007C2A12 /* UIColorExtension.swift */; };
@@ -22,7 +26,6 @@
 		7B15A0452342171600E5839E /* ReturnButtonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D50C62333E495007C2A12 /* ReturnButtonHelper.swift */; };
 		7B15A0462342171600E5839E /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D50C82333EA45007C2A12 /* KeyboardHelper.swift */; };
 		7B15A0472342171600E5839E /* ActivityIndicatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AE5B62339763A004CAB5B /* ActivityIndicatorHelper.swift */; };
-		7B15A0482342171600E5839E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D50C22333A305007C2A12 /* Constants.swift */; };
 		7B15A0492342171600E5839E /* SignInFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE4A297233AC5CE00224CA2 /* SignInFormModel.swift */; };
 		7B15A04A2342171600E5839E /* SignUpFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE4A299233ACAC100224CA2 /* SignUpFormModel.swift */; };
 		7B15A04B2342171600E5839E /* TextInputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B763E3C23327DB2000E38DF /* TextInputFieldView.swift */; };
@@ -32,6 +35,7 @@
 		7B15A0502342171600E5839E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA03FE1232B9BEA00CF1D54 /* ViewController.swift */; };
 		7B15A0512342171600E5839E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6A9586233509CE0003F007 /* SignUpViewController.swift */; };
 		7B15A0522342171600E5839E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA03FDF232B9BEA00CF1D54 /* AppDelegate.swift */; };
+		7B3429922343A2B600E1B421 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3429912343A2B600E1B421 /* CoreDataManager.swift */; };
 		7B5F6F3E232D2D010075A273 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5F6F3D232D2D010075A273 /* Images.xcassets */; };
 		7BA03FE5232B9BEA00CF1D54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BA03FE3232B9BEA00CF1D54 /* Main.storyboard */; };
 		7BA03FEA232B9BEA00CF1D54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BA03FE8232B9BEA00CF1D54 /* LaunchScreen.storyboard */; };
@@ -46,13 +50,17 @@
 		539A405423423E9A005BE54C /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		539A405623423EA9005BE54C /* AccountCreating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreating.swift; sourceTree = "<group>"; };
 		53DBFEE7234246A8003D1C1B /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		53DBFEEA23424E92003D1C1B /* BestMoviesData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BestMoviesData.xcdatamodel; sourceTree = "<group>"; };
+		53DBFEF123425207003D1C1B /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		53DBFEF223425207003D1C1B /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		53DBFEF523425F59003D1C1B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7B27C4C6232BDE5B004C59BE /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
-		7B2D50C22333A305007C2A12 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Assets/Constants.swift; sourceTree = "<group>"; };
 		7B2D50C42333AAD7007C2A12 /* FormsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormsHelper.swift; sourceTree = "<group>"; };
 		7B2D50C62333E495007C2A12 /* ReturnButtonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnButtonHelper.swift; sourceTree = "<group>"; };
 		7B2D50C82333EA45007C2A12 /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
 		7B2D50CE2333F977007C2A12 /* LabelErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelErrorView.swift; sourceTree = "<group>"; };
 		7B2D50D023340347007C2A12 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		7B3429912343A2B600E1B421 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		7B5AE5B62339763A004CAB5B /* ActivityIndicatorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorHelper.swift; sourceTree = "<group>"; };
 		7B5F6F3D232D2D010075A273 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7B6A9586233509CE0003F007 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -97,12 +105,30 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
+		53DBFEEC234251A6003D1C1B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				53DBFEF223425207003D1C1B /* User+CoreDataClass.swift */,
+				53DBFEF123425207003D1C1B /* User+CoreDataProperties.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		65A96A803BEF9C55DEB97B89 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				9342463DAAF501D55C8062AB /* Pods_BestMovies.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7B3429902343A28F00E1B421 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				7B27C4C6232BDE5B004C59BE /* FirebaseManager.swift */,
+				7B3429912343A2B600E1B421 /* CoreDataManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		7B3CF807233E502A00E9DF9A /* ViewModels */ = {
@@ -114,15 +140,6 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		7B6A958823350A2B0003F007 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				7BA03FE3232B9BEA00CF1D54 /* Main.storyboard */,
-				7BA03FE8232B9BEA00CF1D54 /* LaunchScreen.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
 		7B763E2C23326D65000E38DF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,13 +149,16 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		7B763E2D23326E71000E38DF /* Assets */ = {
+		7B763E2D23326E71000E38DF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7BA03FE3232B9BEA00CF1D54 /* Main.storyboard */,
+				7BA03FE8232B9BEA00CF1D54 /* LaunchScreen.storyboard */,
 				7B5F6F3D232D2D010075A273 /* Images.xcassets */,
 				539A404D23423E06005BE54C /* GoogleService-Info.plist */,
+				53DBFEE923424E92003D1C1B /* BestMoviesData.xcdatamodeld */,
 			);
-			path = Assets;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		7B763E2F23326EE8000E38DF /* Views */ = {
@@ -164,12 +184,11 @@
 		7B763E3123326F0C000E38DF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				7B27C4C6232BDE5B004C59BE /* FirebaseManager.swift */,
 				7B2D50C42333AAD7007C2A12 /* FormsHelper.swift */,
 				7B2D50C62333E495007C2A12 /* ReturnButtonHelper.swift */,
 				7B2D50C82333EA45007C2A12 /* KeyboardHelper.swift */,
 				7B5AE5B62339763A004CAB5B /* ActivityIndicatorHelper.swift */,
-				7B2D50C22333A305007C2A12 /* Constants.swift */,
+				53DBFEF523425F59003D1C1B /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -213,15 +232,16 @@
 		7BA03FDE232B9BEA00CF1D54 /* BestMovies */ = {
 			isa = PBXGroup;
 			children = (
+				7B3429902343A28F00E1B421 /* Managers */,
+				53DBFEEC234251A6003D1C1B /* Data */,
 				539A404F23423E1E005BE54C /* Coordinators */,
 				7B3CF807233E502A00E9DF9A /* ViewModels */,
-				7B6A958823350A2B0003F007 /* Storyboards */,
 				7B763E452332874A000E38DF /* Extensions */,
 				7B763E422332871A000E38DF /* Validation */,
 				7B763E3123326F0C000E38DF /* Helpers */,
 				7B763E3023326EF0000E38DF /* Models */,
 				7B763E2F23326EE8000E38DF /* Views */,
-				7B763E2D23326E71000E38DF /* Assets */,
+				7B763E2D23326E71000E38DF /* Resources */,
 				7B763E2C23326D65000E38DF /* Controllers */,
 				7BA03FDF232B9BEA00CF1D54 /* AppDelegate.swift */,
 				7BA03FEB232B9BEA00CF1D54 /* Info.plist */,
@@ -383,18 +403,20 @@
 				7B15A0422342171600E5839E /* Validators.swift in Sources */,
 				7B15A0432342171600E5839E /* FirebaseManager.swift in Sources */,
 				539A405723423EA9005BE54C /* AccountCreating.swift in Sources */,
+				53DBFEF423425207003D1C1B /* User+CoreDataClass.swift in Sources */,
 				7B15A0442342171600E5839E /* FormsHelper.swift in Sources */,
 				539A405523423E9A005BE54C /* MainCoordinator.swift in Sources */,
 				7B15A0452342171600E5839E /* ReturnButtonHelper.swift in Sources */,
 				7B15A0462342171600E5839E /* KeyboardHelper.swift in Sources */,
 				7B15A0472342171600E5839E /* ActivityIndicatorHelper.swift in Sources */,
-				7B15A0482342171600E5839E /* Constants.swift in Sources */,
+				53DBFEF323425207003D1C1B /* User+CoreDataProperties.swift in Sources */,
 				7B15A0492342171600E5839E /* SignInFormModel.swift in Sources */,
 				7B15A04A2342171600E5839E /* SignUpFormModel.swift in Sources */,
 				7B15A04B2342171600E5839E /* TextInputFieldView.swift in Sources */,
 				539A405123423E62005BE54C /* Coordinator.swift in Sources */,
 				7B15A04C2342171600E5839E /* LabelErrorView.swift in Sources */,
 				7B15A04D2342171600E5839E /* PrimaryButtonView.swift in Sources */,
+				53DBFEEB23424E92003D1C1B /* BestMoviesData.xcdatamodeld in Sources */,
 				7B15A04E2342171600E5839E /* CreateAccountButtonView.swift in Sources */,
 				539A405323423E68005BE54C /* Storyboarded.swift in Sources */,
 				7B15A0502342171600E5839E /* ViewController.swift in Sources */,
@@ -402,6 +424,8 @@
 				7B15A0512342171600E5839E /* SignUpViewController.swift in Sources */,
 				7B15A0522342171600E5839E /* AppDelegate.swift in Sources */,
 				7B15A03D234216FA00E5839E /* SignUpViewModel.swift in Sources */,
+				7B3429922343A2B600E1B421 /* CoreDataManager.swift in Sources */,
+				53DBFEF623425F59003D1C1B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,6 +631,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		53DBFEE923424E92003D1C1B /* BestMoviesData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				53DBFEEA23424E92003D1C1B /* BestMoviesData.xcdatamodel */,
+			);
+			currentVersion = 53DBFEEA23424E92003D1C1B /* BestMoviesData.xcdatamodel */;
+			path = BestMoviesData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7BA03FD4232B9BEA00CF1D54 /* Project object */;
 }

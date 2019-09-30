@@ -1,9 +1,9 @@
 //
 //  Constants.swift
-//  BestMoovies
+//  BestMovies
 //
-//  Created by Alexander Evdakov on 9/19/19.
-//  Copyright © 2019 Alexander Evdakov. All rights reserved.z
+//  Created by Alexander Evdakov on 9/30/19.
+//  Copyright © 2019 Alexander Evdakov. All rights reserved.
 //
 
 import UIKit

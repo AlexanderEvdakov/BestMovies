@@ -9,6 +9,8 @@
 import UIKit
 
 class SignUpFormModel: NSObject {
+    var fullName: String?
+    var phoneNumber: String?
     var emailAddress: String?
     var password: String?
     

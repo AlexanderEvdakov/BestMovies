@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController, Storyboarded {
     
@@ -50,7 +51,7 @@ class ViewController: UIViewController, Storyboarded {
         navigationBar.title = "Sign In"
         
         viewModel = SignInViewModel()
-        
+
         emailAddressField.accessibilityIdentifier = AccessibilityIdentifiers.signInEmailFieldIdentifier
         passwordField.accessibilityIdentifier = AccessibilityIdentifiers.signInPasswordFieldIdentier
         
