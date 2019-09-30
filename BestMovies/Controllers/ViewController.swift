@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, Storyboarded {
     
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var createaAccountButton: UIButton!
@@ -22,6 +22,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var navigationBar: UINavigationItem!
     
     @IBOutlet weak var logInScrollView: UIScrollView!
+    
+    var createAccountAction: (() -> Void)?
     
     var activityIndicator: UIActivityIndicatorView!
         
@@ -99,6 +101,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         default:
             break
         }
+    }
+    
+    
+    @IBAction func onCreateAccountTapped(_ sender: Any) {
+        createAccountAction?()
     }
     
 }

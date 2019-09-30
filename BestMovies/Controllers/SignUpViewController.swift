@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var fullNameField: TextInputFieldView! {
         didSet {
@@ -49,6 +49,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var navigationBar: UINavigationBar!
     
     @IBOutlet weak var signUpScrollView: UIScrollView!
+    
+    weak var coordinator: MainCoordinator?
     
     var activityIndicator: UIActivityIndicatorView!
     
