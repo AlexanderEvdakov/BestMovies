@@ -8,16 +8,31 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, Storyboarded {
+class ViewController: UIViewController, Storyboarded {
     
-    @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var createaAccountButton: UIButton!
+    @IBOutlet weak var emailAddressField: UITextField! {
+           didSet {
+               emailAddressField.delegate = self
+           }
+       }
+       
+       @IBOutlet weak var passwordField: UITextField! {
+           didSet {
+               passwordField.delegate = self
+           }
+       }
     
-    @IBOutlet weak var emailAddressField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var signInButton: UIButton! {
+        didSet {
+            signInButton.isEnabled = false
+            signInButton.alpha = 0.5
+        }
+    }
     
     @IBOutlet weak var emailAddressFieldLabel: UILabel!
     @IBOutlet weak var passwordFieldLabel: UILabel!
+    
+    @IBOutlet weak var createaAccountButton: UIButton!
     
     @IBOutlet weak var navigationBar: UINavigationItem!
     
@@ -27,21 +42,15 @@ class ViewController: UIViewController, UITextFieldDelegate, Storyboarded {
     
     var activityIndicator: UIActivityIndicatorView!
         
-    var signInFormModel: SignInFormModel!
+    var viewModel: SignInViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationBar.title = "Sign In"
         
-        emailAddressField.delegate = self
-        passwordField.delegate = self
+        viewModel = SignInViewModel()
         
-        signInButton.isEnabled = false
-        signInButton.alpha = 0.5
-        
-        signInFormModel = SignInFormModel()
-                
         emailAddressField.accessibilityIdentifier = AccessibilityIdentifiers.signInEmailFieldIdentifier
         passwordField.accessibilityIdentifier = AccessibilityIdentifiers.signInPasswordFieldIdentier
         
@@ -50,62 +59,58 @@ class ViewController: UIViewController, UITextFieldDelegate, Storyboarded {
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
+}
+
+// MARK: -Actions
+extension ViewController {
+    
     @IBAction func onSignInButtonTapped(_ sender: Any) {
-        let loginManager = FirebaseAuthManager()
-        guard let email = emailAddressField.text, let password = passwordField.text else { return }
-        
         let activityIndicator = ActivityIndicatorHelper.setIndicatorOnButton(button: signInButton)
         
-        loginManager.signIn(email: email, password: password) {success in
+        viewModel?.signIn(button: signInButton, completionBlock: { (success) in
             ActivityIndicatorHelper.deleteIndicatorFromButton(self.signInButton, "Sign In", activityIndicator)
             
             var message: String = ""
             
-            if (success) {
+            if success {
                 message = Messages.signInSuccess
                 FormsHelper.showSuccessAlert(message: message, alertTitle: "Sign in", viewController: self)
             } else {
                 message = Messages.errorMessage
                 self.passwordFieldLabel.text = message
             }
-        }
+        })
     }
+    
+    @IBAction func onCreateAccountTapped(_ sender: Any) {
+        createAccountAction?()
+    }
+    
+}
+
+// MARK: -UITextFieldDelegate
+extension ViewController: UITextFieldDelegate {
     
     @objc func adjustForKeyboard(notification: Notification) {
         KeyboardHelper.hanldeOverlayTextFieldsBehavior(notification: notification, view: view, scrollView: logInScrollView)
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool { 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         ReturnButtonHelper.moveToTheNextTextField(textField: textField)
         
         return true
     }
     
     @objc func textFieldDidEndEditing(_ textField: UITextField) {
-        validate(textField)
+        viewModel?.validateAndSaveData(textField, emailAddressFieldLabel, passwordFieldLabel)
         
-        let formFieldsStatement: [Bool] = [signInFormModel.isEmailAddressFieldValid!, signInFormModel.isPasswordFieldValid!]
-        
-        if (formFieldsStatement.allSatisfy({ $0 == true })) {
+        if (viewModel?.isFormValid())! {
             signInButton.isEnabled = true
             signInButton.alpha = 1
+        } else {
+            signInButton.isEnabled = false
+            signInButton.alpha = 0.5
         }
-    }
-    
-    func validate(_ textField: UITextField) {
-        switch textField.accessibilityIdentifier {
-        case AccessibilityIdentifiers.signInEmailFieldIdentifier:
-            signInFormModel.isEmailAddressFieldValid = FormsHelper.handleFieldStatement(textField: textField, fieldLabel: emailAddressFieldLabel, validationType: ValidatorType.email)
-        case AccessibilityIdentifiers.signInPasswordFieldIdentier:
-            signInFormModel.isPasswordFieldValid = FormsHelper.handleFieldStatement(textField: textField, fieldLabel: passwordFieldLabel, validationType: ValidatorType.password)
-        default:
-            break
-        }
-    }
-    
-    
-    @IBAction func onCreateAccountTapped(_ sender: Any) {
-        createAccountAction?()
     }
     
 }

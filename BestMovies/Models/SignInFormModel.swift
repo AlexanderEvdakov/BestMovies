@@ -9,6 +9,9 @@
 import UIKit
 
 class SignInFormModel: NSObject {
+    var emailAddress: String?
+    var password: String?
+    
     var isEmailAddressFieldValid: Bool?
     var isPasswordFieldValid: Bool?
     

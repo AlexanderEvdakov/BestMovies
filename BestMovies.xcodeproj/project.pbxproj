@@ -12,6 +12,7 @@
 		539A405323423E68005BE54C /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539A405223423E68005BE54C /* Storyboarded.swift */; };
 		539A405523423E9A005BE54C /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539A405423423E9A005BE54C /* MainCoordinator.swift */; };
 		539A405723423EA9005BE54C /* AccountCreating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539A405623423EA9005BE54C /* AccountCreating.swift */; };
+		53DBFEE8234246A8003D1C1B /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DBFEE7234246A8003D1C1B /* SignInViewModel.swift */; };
 		7B15A03D234216FA00E5839E /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE600CE233D0B1F000EBEC9 /* SignUpViewModel.swift */; };
 		7B15A0402342171600E5839E /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B763E462332875D000E38DF /* UITextFieldExtension.swift */; };
 		7B15A0412342171600E5839E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D50D023340347007C2A12 /* UIColorExtension.swift */; };
@@ -44,6 +45,7 @@
 		539A405223423E68005BE54C /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		539A405423423E9A005BE54C /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		539A405623423EA9005BE54C /* AccountCreating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreating.swift; sourceTree = "<group>"; };
+		53DBFEE7234246A8003D1C1B /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		7B27C4C6232BDE5B004C59BE /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		7B2D50C22333A305007C2A12 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Assets/Constants.swift; sourceTree = "<group>"; };
 		7B2D50C42333AAD7007C2A12 /* FormsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormsHelper.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				7BE600CE233D0B1F000EBEC9 /* SignUpViewModel.swift */,
+				53DBFEE7234246A8003D1C1B /* SignInViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				7B15A04E2342171600E5839E /* CreateAccountButtonView.swift in Sources */,
 				539A405323423E68005BE54C /* Storyboarded.swift in Sources */,
 				7B15A0502342171600E5839E /* ViewController.swift in Sources */,
+				53DBFEE8234246A8003D1C1B /* SignInViewModel.swift in Sources */,
 				7B15A0512342171600E5839E /* SignUpViewController.swift in Sources */,
 				7B15A0522342171600E5839E /* AppDelegate.swift in Sources */,
 				7B15A03D234216FA00E5839E /* SignUpViewModel.swift in Sources */,
