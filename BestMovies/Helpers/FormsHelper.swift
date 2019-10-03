@@ -25,9 +25,9 @@ class FormsHelper {
         }
     }
     
-    static func showSuccessAlert(message: String, alertTitle: String, viewController: UIViewController) {
+    static func showSuccessAlert(message: String, alertTitle: String, viewController: UIViewController, action: UIAlertAction) {
         let alert = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(action)
         viewController.present(alert, animated: true, completion: nil)
     }
     

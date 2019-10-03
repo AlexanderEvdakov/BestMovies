@@ -9,6 +9,7 @@
 import UIKit
 
 class SignUpFormModel: NSObject {
+    
     var fullName: String?
     var phoneNumber: String?
     var emailAddress: String?
@@ -25,4 +26,5 @@ class SignUpFormModel: NSObject {
         self.isEmailAddressFieldValid = false
         self.isPasswordFieldValid = false
     }
+    
 }

@@ -33,6 +33,12 @@ final class SignInViewModel {
         
         if let email = signInFormModel.emailAddress, let password = signInFormModel.password {
             loginManager.signIn(email: email, password: password) {success in
+                
+                if success {
+                    let coreDataManager = UserCoreDataManager()
+                    coreDataManager.changeUserEmail(email)
+                }
+                
                 completionBlock(success)
             }
         }

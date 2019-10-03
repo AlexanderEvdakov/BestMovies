@@ -50,11 +50,13 @@ class SignUpViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var signUpScrollView: UIScrollView!
     
-    weak var coordinator: MainCoordinator?
+    weak var coordinator: SignUpCoordinator?
     
     var activityIndicator: UIActivityIndicatorView!
     
     var viewModel: SignUpViewModel?
+    
+    var navigateToMoviesTableView: (() -> Void)?
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +81,10 @@ extension SignUpViewController {
             
             if (result) {
                 message = Messages.signUpSuccess
-                FormsHelper.showSuccessAlert(message: message, alertTitle: "Create Account", viewController: self)
+                let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    self.navigateToMoviesTableView?()
+                }
+                FormsHelper.showSuccessAlert(message: message, alertTitle: "Create Account", viewController: self, action: okAction)
             } else {
                 message = Messages.errorMessage
                 self.passwordErrorLabel.text = message

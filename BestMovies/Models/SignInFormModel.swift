@@ -9,6 +9,7 @@
 import UIKit
 
 class SignInFormModel: NSObject {
+    
     var emailAddress: String?
     var password: String?
     
@@ -19,4 +20,5 @@ class SignInFormModel: NSObject {
         self.isEmailAddressFieldValid = false
         self.isPasswordFieldValid = false
     }
+    
 }

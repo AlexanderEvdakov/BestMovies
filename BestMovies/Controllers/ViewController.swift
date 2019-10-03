@@ -40,6 +40,7 @@ class ViewController: UIViewController, Storyboarded {
     @IBOutlet weak var logInScrollView: UIScrollView!
     
     var createAccountAction: (() -> Void)?
+    var navigateToMoviesTableView: (() -> Void)?
     
     var activityIndicator: UIActivityIndicatorView!
         
@@ -51,6 +52,8 @@ class ViewController: UIViewController, Storyboarded {
         navigationBar.title = "Sign In"
         
         viewModel = SignInViewModel()
+        
+        navigateToMoviesTableView?()
 
         emailAddressField.accessibilityIdentifier = AccessibilityIdentifiers.signInEmailFieldIdentifier
         passwordField.accessibilityIdentifier = AccessibilityIdentifiers.signInPasswordFieldIdentier
@@ -75,7 +78,10 @@ extension ViewController {
             
             if success {
                 message = Messages.signInSuccess
-                FormsHelper.showSuccessAlert(message: message, alertTitle: "Sign in", viewController: self)
+                let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    self.navigateToMoviesTableView?()
+                }
+                FormsHelper.showSuccessAlert(message: message, alertTitle: "Sign in", viewController: self, action: okAction)
             } else {
                 message = Messages.errorMessage
                 self.passwordFieldLabel.text = message

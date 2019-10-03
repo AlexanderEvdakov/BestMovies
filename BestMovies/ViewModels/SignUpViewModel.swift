@@ -54,7 +54,7 @@ final class SignUpViewModel {
     }
     
     func saveUserData(_ fullName: String, _ phoneNumber: String, _ email: String) {
-        let coreDataManager = CoreDataManager()
+        let coreDataManager = UserCoreDataManager()
         coreDataManager.createNewUser(fullName, phoneNumber, email)
     }
     

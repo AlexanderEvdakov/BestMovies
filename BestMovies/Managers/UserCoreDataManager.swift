@@ -9,7 +9,7 @@
 import CoreData
 import UIKit.UIApplication
 
-class CoreDataManager {
+class UserCoreDataManager {
     
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
@@ -20,8 +20,15 @@ class CoreDataManager {
         
         do {
             let result = try context.fetch(request)
+            var user: NSManagedObject
             
-            let user = result[0] as NSManagedObject
+            if (result.count >= 1) {
+                user = result[0] as NSManagedObject
+            } else {
+                let userEntity = NSEntityDescription.entity(forEntityName: "User", in: context)!
+                user = NSManagedObject(entity: userEntity, insertInto: context)
+            }
+            
             user.setValue(fullName, forKey: "fullName")
             user.setValue(phoneNumber, forKey: "phoneNumber")
             user.setValue(emailAddress, forKey: "emailAddress")
@@ -78,7 +85,34 @@ class CoreDataManager {
         } catch {
             print("fail")
         }
+    }
+    
+    func changeUserEmail(_ emailAddress: String?) {
+        let context = appDelegate!.persistentContainer.viewContext
         
+        let request: NSFetchRequest<User> = User.fetchRequest()
+        
+        do {
+            let result = try context.fetch(request)
+            var user: NSManagedObject
+            
+            if (result.count >= 1) {
+                user = result[0] as NSManagedObject
+            } else {
+                let userEntity = NSEntityDescription.entity(forEntityName: "User", in: context)!
+                user = NSManagedObject(entity: userEntity, insertInto: context)
+            }
+            
+            user.setValue(emailAddress, forKey: "emailAddress")
+
+            do {
+                try context.save()
+            } catch {
+                print("fail")
+            }
+        } catch {
+            print("fail")
+        }
     }
     
 }
