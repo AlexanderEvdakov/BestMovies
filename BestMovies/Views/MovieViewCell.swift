@@ -18,7 +18,7 @@ class MovieViewCell: UITableViewCell {
     func setMovies(moviePoster: Movie) {
         moviePosterViewCell.translatesAutoresizingMaskIntoConstraints = true
         
-        moviePosterViewCell.image = moviePoster.poster
+        moviePosterViewCell.image = UIImage(imageLiteralResourceName: moviePoster.poster!)
         movieTitle.text = moviePoster.posterTitle
         movieGenre.text = moviePoster.movieGenre
         movieNoteAuthor.text = moviePoster.author

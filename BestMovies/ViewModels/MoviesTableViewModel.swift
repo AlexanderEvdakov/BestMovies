@@ -10,12 +10,6 @@ import UIKit
 
 final class MoviesTableViewModel {
     
-    var moviesList: [Movie] = MoviesDataManager.getMoviesList()
-    
-    func getMoviesList() -> [Movie] {
-        return moviesList
-    }
-    
     func isAuthorMovieCard(movieAuthorEmail: String) -> Bool {
         let userCoreData = UserCoreDataManager()
         let authorEmail = userCoreData.getUserEmail()
@@ -25,6 +19,13 @@ final class MoviesTableViewModel {
         } else {
             return false
         }
+    }
+    
+    func signOut(navigationController: UINavigationController) {
+        let userCoreDateManager = UserCoreDataManager()
+        userCoreDateManager.deleteUser()
+        
+        navigationController.popViewController(animated: true)
     }
 
 }

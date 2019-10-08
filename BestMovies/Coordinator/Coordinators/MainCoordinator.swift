@@ -39,10 +39,7 @@ class MainCoordinator: Coordinator, AccountCreating, NavigateToMoviesTableViewAc
         child.start()
     }
     
-    func navigateToMoviesTableView() {
-//        let vc = MoviesTableViewController.instatiate()
-//        navigationController.pushViewController(vc, animated: true)
-        
+    func navigateToMoviesTableView() {        
         let child = MoviesCoordinator(navigationController: navigationController)
         child.parentCoordinator = self
         childCoordinators.append(child)

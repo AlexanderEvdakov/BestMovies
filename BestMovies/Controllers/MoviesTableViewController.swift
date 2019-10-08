@@ -14,6 +14,7 @@ class MoviesTableViewController: UITableViewController, Storyboarded {
     
     var navigateToProfile: ((_ movie: Movie) -> Void)?
     var selectedMovie: Movie?
+    var isNewMovie: Bool! = false
  
     var viewModel: MoviesTableViewModel?
     
@@ -23,7 +24,6 @@ class MoviesTableViewController: UITableViewController, Storyboarded {
         super.viewDidLoad()
         
         viewModel = MoviesTableViewModel()
-        movies = viewModel!.getMoviesList()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -33,16 +33,33 @@ class MoviesTableViewController: UITableViewController, Storyboarded {
         navigationItem.title = "Movies"
         navigationController?.navigationBar.isTranslucent = false
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign out", style: UIBarButtonItem.Style.plain, target: self, action: #selector(signOut))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(onAddButtonClick))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.rowHeight = 122
+        
+        let movieCoreDataManager = MovieCoreDataManager()
+        movies = movieCoreDataManager.getAllMoviesFromLibrary()
+        
+        self.tableView.reloadData()
     }
     
 }
 
 // MARK: -Actions
-
 extension MoviesTableViewController {
     
     @objc func signOut() {
-        print("sign out")
+        viewModel?.signOut(navigationController: navigationController!)
+    }
+    
+    @objc func onAddButtonClick() {
+        let newMovie = Movie(id: Int(100), image: "image_placeholder", posterTitle: "", genre: "", author: "", reviewMessage: "", budget: "", releaseData: "")
+        selectedMovie = newMovie
+        isNewMovie = true
+        
+        navigateToProfile?(newMovie)
     }
     
 }
@@ -86,13 +103,10 @@ extension MoviesTableViewController {
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         selectedMovie = movies[indexPath.row]
+        isNewMovie = false
         navigateToProfile?(movies[indexPath.row])
         
         return indexPath
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.rowHeight = 122
     }
     
 }

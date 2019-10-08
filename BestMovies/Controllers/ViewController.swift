@@ -52,8 +52,6 @@ class ViewController: UIViewController, Storyboarded {
         navigationBar.title = "Sign In"
         
         viewModel = SignInViewModel()
-        
-        navigateToMoviesTableView?()
 
         emailAddressField.accessibilityIdentifier = AccessibilityIdentifiers.signInEmailFieldIdentifier
         passwordField.accessibilityIdentifier = AccessibilityIdentifiers.signInPasswordFieldIdentier

@@ -27,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
+        
+        let movieCoreDataManager = MovieCoreDataManager()
+        movieCoreDataManager.addInitialMovieData()
 
         return true
     }
@@ -55,7 +58,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // MARK: - Core Data stack
-
     
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "BestMoviesData")

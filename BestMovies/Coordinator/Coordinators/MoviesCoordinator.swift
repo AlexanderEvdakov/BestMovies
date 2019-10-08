@@ -23,15 +23,16 @@ class MoviesCoordinator: Coordinator {
         let vc = MoviesTableViewController.instatiate()
         
         vc.navigateToProfile = { [weak self] Movie in
-            self?.navigateToProfile(movie: vc.selectedMovie!)
+            self?.navigateToProfile(movie: vc.selectedMovie!, isNewMovie: vc.isNewMovie)
         }
         
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func navigateToProfile(movie: Movie) {
+    func navigateToProfile(movie: Movie, isNewMovie: Bool) {
         let vc = ProfileViewController.instatiate()
         vc.movieData = movie
+        vc.isNewMovie = isNewMovie
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
